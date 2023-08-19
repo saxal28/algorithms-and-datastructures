@@ -71,8 +71,7 @@ function optimizedBubbleSort(array) {
     return array
 }
 
-console.log(bubbleSort([1, 5, 2, 3]))
-console.log(bubbleSort([6, 5, 2, 4, 3, 6, 7, 8, 9, 6, 5, 4, 3, 1]))
-
-console.log(optimizedBubbleSort([1, 5, 2, 3]))
-console.log(optimizedBubbleSort([6, 5, 2, 4, 3, 6, 7, 8, 9, 6, 5, 4, 3, 1]))
+module.exports = {
+    bubbleSort,
+    optimizedBubbleSort
+}
