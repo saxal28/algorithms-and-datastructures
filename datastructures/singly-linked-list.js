@@ -1,12 +1,3 @@
-// ======================================
-// Singly Linked List
-// ======================================
-
-// A data structure that contains a head, tail, and length property. 
-// Liked lists consist of nodes, each node has a value and pointer to another node or null. 
-// Each node is only connected in one direction to the next node.
-
-
 class Node {
     constructor(value) {
         this.value = value
@@ -162,39 +153,62 @@ class SinglyLinkedList {
         this.length++
         return true
     }
+
+    remove(index) {
+        if (index < 0 || index >= this.length) return undefined
+        if (this.length - 1 == index) return this.pop()
+        if (index == 0) return this.shift()
+
+        const nodeAtIndex = this.get(index)
+        const nextNode = nodeAtIndex.next
+        const previousNode = this.get(index - 1)
+
+        // previous node -> node at index -> next node
+        // previous node -> next node
+
+        previousNode.next = nextNode
+        this.length--
+        return nodeAtIndex
+    }
+
+    reverse() {
+        // =======================
+        // HOW THIS WORKS
+        // =======================
+        // swap head and tail
+        // set initial node to head
+        // loop through list
+        // set *next* to current node.next
+        // set *node* next to previous
+        // set *previous* to current node
+
+        var node = this.head
+        this.head = this.tail
+        this.tail = node
+
+        var previous = null
+        var next = null
+
+        for (var i = 0; i < this.length; i++) {
+            next = node.next
+            node.next = previous
+            previous = node
+            node = next
+        }
+
+        return this
+    }
+
+    get values() {
+        var current = this.head
+        var list = []
+        while (current != null) {
+            list.push(current.value)
+            current = current.next
+        }
+
+        return list
+    }
 }
 
-const linkedList = new SinglyLinkedList()
-linkedList.push("hi")
-linkedList.push("there")
-linkedList.push("guy")
-
-linkedList.print()
-
-console.log("shift | " + linkedList.shift()?.value)
-
-linkedList.print()
-
-console.log("unshift | " + linkedList.unshift("yo"))
-console.log("unshift | " + linkedList.unshift("yarg"))
-console.log("unshift | " + linkedList.unshift("butt"))
-
-linkedList.print()
-console.log("get index | " + linkedList.get(1)?.value)
-console.log("get index | " + linkedList.get(2)?.value)
-console.log("get index | " + linkedList.get(4)?.value)
-
-linkedList.print()
-
-console.log("set index | ", linkedList.set(1, "alan"))
-console.log("set index | ", linkedList.set(4, "dude"))
-
-linkedList.print()
-
-console.log("insrt index | ", linkedList.insert(4, "sax"))
-
-linkedList.print()
-
-
-  // console.log(linkedList.pop())
-  // console.log(linkedList)
+module.exports = SinglyLinkedList
