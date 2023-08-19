@@ -1,6 +1,5 @@
 const SinglyLinkedList = require("./singly-linked-list")
 
-
 test("Can Reverse a Linked List", () => {
     const singlyLinkedList = new SinglyLinkedList()
     singlyLinkedList.unshift(1)
@@ -11,5 +10,5 @@ test("Can Reverse a Linked List", () => {
 
     singlyLinkedList.reverse()
 
-    expect(singlyLinkedList.values).toStrictEqual([5,4,3,2,1]);
+    expect(singlyLinkedList.values).toStrictEqual([5, 4, 3, 2, 1]);
 })
