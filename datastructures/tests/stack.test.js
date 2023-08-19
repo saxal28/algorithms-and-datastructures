@@ -1,4 +1,4 @@
-const Stack = require("./stack")
+const Stack = require("../stack")
 
 test("Can Add an Item to the start of a Stack", () => {
     const stack = new Stack()

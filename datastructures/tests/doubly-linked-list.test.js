@@ -1,4 +1,4 @@
-const DoublyLinkedList = require("./doubly-linked-list")
+const DoublyLinkedList = require("../doubly-linked-list")
 
 test("Can Push to a Doubly Linked List", () => {
     const list = new DoublyLinkedList()

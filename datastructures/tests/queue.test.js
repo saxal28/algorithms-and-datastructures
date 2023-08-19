@@ -1,13 +1,11 @@
-const Queue = require("./queue")
+const Queue = require("../queue")
 
 test("Can add to a Queue", () => {
     const queue = new Queue()
     queue.enqueue(1) // first in
     queue.enqueue(2)
     queue.enqueue(3)
-
-    console.log(queue)
-
+    
     expect(queue.values).toStrictEqual([1, 2, 3]);
 })
 

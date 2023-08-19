@@ -1,4 +1,4 @@
-const SinglyLinkedList = require("./singly-linked-list")
+const SinglyLinkedList = require("../singly-linked-list")
 
 test("Can Reverse a Linked List", () => {
     const singlyLinkedList = new SinglyLinkedList()
