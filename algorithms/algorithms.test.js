@@ -1,7 +1,7 @@
-const {bubbleSort, optimizedBubbleSort} = require("./bubble-sort");
+const { bubbleSort, optimizedBubbleSort } = require("./bubble-sort");
 const binarySearch = require("./binary-search");
 
-test("Binary Search Works", () => {
+test("Bubble Sort Works", () => {
     expect(bubbleSort([1, 5, 2, 3])).toStrictEqual([1, 2, 3, 5]);
     expect(bubbleSort([6, 5, 2, 4, 3, 6, 7, 8, 9, 6, 5, 4, 3, 1])).toStrictEqual([
         1, 2, 3, 3, 4, 4,
@@ -10,9 +10,9 @@ test("Binary Search Works", () => {
     ]);
 });
 
-test("Bubble Sort Works", () => {
-    expect(bubbleSort([1, 5, 2, 3])).toStrictEqual([1, 2, 3, 5]);
-    expect(bubbleSort([6, 5, 2, 4, 3, 6, 7, 8, 9, 6, 5, 4, 3, 1])).toStrictEqual([
+test("Optimized Bubble Sort Works", () => {
+    expect(optimizedBubbleSort([1, 5, 2, 3])).toStrictEqual([1, 2, 3, 5]);
+    expect(optimizedBubbleSort([6, 5, 2, 4, 3, 6, 7, 8, 9, 6, 5, 4, 3, 1])).toStrictEqual([
         1, 2, 3, 3, 4, 4,
         5, 5, 6, 6, 6, 7,
         8, 9
