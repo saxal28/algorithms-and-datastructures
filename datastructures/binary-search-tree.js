@@ -124,7 +124,7 @@ class BinarySearchTree {
     //          6     15
     //        3   8     20
     // ===========================
-    //  we start from left and go down
+    // we start from left and go down
     // order: [10, 6, 3, 8, 15, 20]
     depthFirstSearchPreOrder(value) {
         const visited = []
