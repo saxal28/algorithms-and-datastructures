@@ -106,3 +106,31 @@ test("Depth First Search | PreOrder on a Binary Tree", () => {
         10, 6, 3, 8, 15, 20
     ]);
 });
+
+test("Depth First Search | PostOrder on a Binary Tree", () => {
+    const binarySearchTree = new BinarySearchTree()
+    binarySearchTree.insert(10)
+    binarySearchTree.insert(15)
+    binarySearchTree.insert(20)
+    binarySearchTree.insert(6)
+    binarySearchTree.insert(8)
+    binarySearchTree.insert(3)
+
+    expect(binarySearchTree.depthFirstSearchPostOrder()).toStrictEqual([
+        3, 8, 6, 20, 15, 10
+    ]);
+});
+
+test("Depth First Search | InOrder on a Binary Tree", () => {
+    const binarySearchTree = new BinarySearchTree()
+    binarySearchTree.insert(10)
+    binarySearchTree.insert(15)
+    binarySearchTree.insert(20)
+    binarySearchTree.insert(6)
+    binarySearchTree.insert(8)
+    binarySearchTree.insert(3)
+
+    expect(binarySearchTree.depthFirstSearchInOrder()).toStrictEqual([
+        3, 6, 8, 10, 15, 20
+    ]);
+});

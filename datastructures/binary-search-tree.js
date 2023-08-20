@@ -134,7 +134,55 @@ class BinarySearchTree {
             visited.push(value)
             if (left) helper(left)
             if (right) helper(right)
-            if (!left || right) return visited
+            return visited
+        }
+
+        return helper(current)
+    }
+
+    // ==========================
+    // DFS:POSTORDER | HOW IT WORKS
+    // ==========================
+    //        example tree
+    //             10
+    //          6     15
+    //        3   8     20
+    // ===========================
+    // start from the left, look at all child nodes before going up
+    // order: [3, 8, 6, 20, 15, 10]
+    depthFirstSearchPostOrder(value) {
+        const visited = []
+        var current = this.root
+
+        function helper({ value, left, right }) {
+            if (left) helper(left)
+            if (right) helper(right)
+            visited.push(value) // explore left and right....then push
+            return visited
+        }
+
+        return helper(current)
+    }
+
+    // ==========================
+    // DFS:INORDER | HOW IT WORKS
+    // ==========================
+    //        example tree
+    //             10
+    //          6     15
+    //        3   8     20
+    // ===========================
+    // start from the left, go all the way to the bottom, up to parent, down right side, and up until root && repeat for bottom nodes
+    // order: [3, 6, 8, 10 15, 20]
+    depthFirstSearchInOrder(value) {
+        const visited = []
+        var current = this.root
+
+        function helper({ value, left, right }) {
+            if (left) helper(left)
+            visited.push(value) // explore left and right....then push
+            if (right) helper(right)
+            return visited
         }
 
         return helper(current)
