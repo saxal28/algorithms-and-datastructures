@@ -28,9 +28,11 @@ class BinarySearchTree {
 
         if (this.root == null) {
             this.root = new Node(value)
+            return this
         } else {
             var currentNode = this.root
             while(currentNode != null) {
+                if (value == currentNode.value) return undefined // do not allow for duplicates
                 const isLessThanAndHasAnotherNode = value < currentNode.value && currentNode.left
                 const isLessThanAndDoesNotHaveAnotherNode = value < currentNode.value && !currentNode.left
                 const isGreaterThanAndHasAnotherNode = value > currentNode.value && currentNode.right
@@ -47,7 +49,35 @@ class BinarySearchTree {
                     currentNode = null
                 }
             }
+
+            return this
         }
+    }
+
+    find(value) {
+        if (this.root == null) return false
+
+        var currentNode = this.root
+        while(currentNode != null) {
+            const isEqual = value == currentNode.value
+            const isLessThanAndHasAnotherNode = value < currentNode.value && currentNode.left
+            const isLessThanAndDoesNotHaveAnotherNode = value < currentNode.value && !currentNode.left
+            const isGreaterThanAndHasAnotherNode = value > currentNode.value && currentNode.right
+
+            if (isEqual) {
+                return true
+            } else if (isLessThanAndHasAnotherNode) {
+                currentNode = currentNode.left
+            } else if (isLessThanAndDoesNotHaveAnotherNode) {
+                currentNode = null
+            } else if (isGreaterThanAndHasAnotherNode) {
+                currentNode = currentNode.right
+            } else {
+                currentNode = null
+            }
+        }
+
+        return false
     }
 }
 

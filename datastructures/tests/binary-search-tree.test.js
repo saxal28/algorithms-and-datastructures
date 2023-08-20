@@ -65,3 +65,16 @@ test("Can add create a root, parent with 2 child nodes Binary Search Tree", () =
     //                   |       |
     //                   18      21
 });
+
+test("Can add create a root, parent with 2 child nodes Binary Search Tree", () => {
+    const binarySearchTree = new BinarySearchTree()
+    binarySearchTree.insert(10)
+    binarySearchTree.insert(20)
+    binarySearchTree.insert(18)
+    binarySearchTree.insert(21)
+
+    expect(binarySearchTree.find(18)).toStrictEqual(true);
+    expect(binarySearchTree.find(28)).toStrictEqual(false);
+    expect(binarySearchTree.find(2800)).toStrictEqual(false);
+    expect(binarySearchTree.find(20)).toStrictEqual(true);
+});
