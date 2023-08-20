@@ -99,6 +99,7 @@ class BinarySearchTree {
     // -- queue = [] | visited = [10,6,15,3,8,20]
     // when queue is empty....done
     // if find value, done
+    // order: [10, 6, 15, 3, 8, 20]
     breadthFirstSearch(value) {
         const queue = new Queue() // this could also be a array -> use shift + unshift
         const visited = []
@@ -113,6 +114,30 @@ class BinarySearchTree {
         }
 
         return visited
+    }
+
+    // ==========================
+    // DFS:PREORDER | HOW IT WORKS
+    // ==========================
+    //        example tree
+    //             10
+    //          6     15
+    //        3   8     20
+    // ===========================
+    //  we start from left and go down
+    // order: [10, 6, 3, 8, 15, 20]
+    depthFirstSearchPreOrder(value) {
+        const visited = []
+        var current = this.root
+
+        function helper({ value, left, right }) {
+            visited.push(value)
+            if (left) helper(left)
+            if (right) helper(right)
+            if (!left || right) return visited
+        }
+
+        return helper(current)
     }
 }
 

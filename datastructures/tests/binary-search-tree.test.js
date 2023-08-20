@@ -92,3 +92,17 @@ test("Breadth First Search on a Binary Tree", () => {
         10, 6, 15, 3, 8, 20
     ]);
 });
+
+test("Depth First Search | PreOrder on a Binary Tree", () => {
+    const binarySearchTree = new BinarySearchTree()
+    binarySearchTree.insert(10)
+    binarySearchTree.insert(15)
+    binarySearchTree.insert(20)
+    binarySearchTree.insert(6)
+    binarySearchTree.insert(8)
+    binarySearchTree.insert(3)
+
+    expect(binarySearchTree.depthFirstSearchPreOrder()).toStrictEqual([
+        10, 6, 3, 8, 15, 20
+    ]);
+});
