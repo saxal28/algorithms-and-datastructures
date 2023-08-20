@@ -12,7 +12,7 @@ test("Can add a Root Node to a Binary Search Tree", () => {
     ]);
 });
 
-test("Can add a Root Node to a Binary Search Tree", () => {
+test("Can get the max of a Max Binary Heap and reindex", () => {
     const maxBinaryHeap = new MaxBinaryHeap()
     maxBinaryHeap.insertAll([
         70, 67, 65, 45, 58, 40, 53, 44, 15, 31
